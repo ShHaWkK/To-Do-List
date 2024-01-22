@@ -26,11 +26,8 @@ function addTask() {
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
     taskInput.value = '';
-
-    document.getElementById('task-list').appendChild(newTask);
-    saveTasks();
-    taskInput.value = '';
 }
+
 
 function toggleTaskCompletion(e) {
     e.target.classList.toggle('completed');
