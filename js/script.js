@@ -24,7 +24,7 @@ function addTask() {
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
     taskInput.value = '';
-    
+
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
     taskInput.value = '';
@@ -67,3 +67,16 @@ function loadTasks() {
     });
 }
 
+function filterTasks() {
+    let searchInput = document.getElementById('search-task').value.toLowerCase();
+    let tasks = document.querySelectorAll('#task-list li');
+
+    tasks.forEach(function(task) {
+        let taskText = task.textContent.toLowerCase();
+        if (taskText.includes(searchInput)) {
+            task.style.display = '';
+        } else {
+            task.style.display = 'none';
+        }
+    });
+}
