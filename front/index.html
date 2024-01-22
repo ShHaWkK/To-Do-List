@@ -21,7 +21,7 @@
             <option value="urgent">Urgent</option>
             <option value="autre">Autre</option>
         </select>
-
+        
         <!-- Menu déroulant pour filtrer par priorité -->
         <select id="filter-priority" onchange="filterTasks()">
             <option value="">Toutes les priorités</option>
@@ -29,6 +29,7 @@
             <option value="moyenne">Moyenne</option>
             <option value="élevée">Élevée</option>
         </select>
+        <input type="date" id="task-due-date">
         <button onclick="addTask()">Ajouter</button>
         <ul id="task-list"></ul>
     </div>
