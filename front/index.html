@@ -24,6 +24,9 @@
             <option value="élevée">Élevée</option>
         </select>
 
+        <!-- Champ de recherche -->
+        <input type="text" id="search-task" placeholder="Rechercher une tâche..." onkeyup="filterTasks()">
+
         <button onclick="addTask()">Ajouter</button>
         <ul id="task-list"></ul>
     </div>
