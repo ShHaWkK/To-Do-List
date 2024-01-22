@@ -24,6 +24,12 @@
     align-items: center;
 }
 
+#new-task, #task-category {
+    width: 30%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
 #task-list li.completed {
     text-decoration: line-through;
     color: #999;
