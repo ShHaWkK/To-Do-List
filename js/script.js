@@ -8,10 +8,12 @@ document.getElementById('new-task').addEventListener('keypress', function(e) {
 function addTask() {
     let taskInput = document.getElementById('new-task');
     let taskCategory = document.getElementById('task-category').value;
+    let taskPriority = document.getElementById('task-priority').value;
     if (taskInput.value.trim() === '') return;
 
     let newTask = document.createElement('li');
-    newTask.textContent = taskInput.value + ' [' + taskCategory + ']'; // Ajout de la catégorie
+    newTask.textContent = taskInput.value + ' [Catégorie: ' + taskCategory + ']';
+    newTask.classList.add(taskPriority);
     newTask.addEventListener('click', toggleTaskCompletion);
 
     let deleteBtn = document.createElement('button');
@@ -19,6 +21,10 @@ function addTask() {
     deleteBtn.addEventListener('click', deleteTask);
 
     newTask.appendChild(deleteBtn);
+    document.getElementById('task-list').appendChild(newTask);
+    saveTasks();
+    taskInput.value = '';
+    
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
     taskInput.value = '';
