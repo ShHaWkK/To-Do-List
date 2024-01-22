@@ -7,8 +7,8 @@ document.getElementById('new-task').addEventListener('keypress', function(e) {
 
 function addTask() {
     let taskInput = document.getElementById('new-task');
-    let taskCategory = document.getElementById('task-category').value;
-    let taskPriority = document.getElementById('task-priority').value;
+    let taskCategory = document.getElementById('filter-category').value; // ID corrigé
+    let taskPriority = document.getElementById('filter-priority').value; // ID corrigé
     if (taskInput.value.trim() === '') return;
 
     let newTask = document.createElement('li');
@@ -30,7 +30,6 @@ function addTask() {
     saveTasks();
     taskInput.value = '';
 }
-
 
 function toggleTaskCompletion(e) {
     e.target.classList.toggle('completed');
@@ -55,7 +54,6 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
 
 function loadTasks() {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
