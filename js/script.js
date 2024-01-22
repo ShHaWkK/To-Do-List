@@ -68,12 +68,19 @@ function loadTasks() {
 }
 
 function filterTasks() {
-    let searchInput = document.getElementById('search-task').value.toLowerCase();
+    let searchText = document.getElementById('search-text').value.toLowerCase();
+    let filterCategory = document.getElementById('filter-category').value;
+    let filterPriority = document.getElementById('filter-priority').value;
     let tasks = document.querySelectorAll('#task-list li');
 
     tasks.forEach(function(task) {
         let taskText = task.textContent.toLowerCase();
-        if (taskText.includes(searchInput)) {
+        let taskCategory = task.getAttribute('data-category'); 
+        let taskPriority = task.getAttribute('data-priority'); 
+
+        if (taskText.includes(searchText) && 
+            (filterCategory === '' || taskCategory === filterCategory) && 
+            (filterPriority === '' || taskPriority === filterPriority)) {
             task.style.display = '';
         } else {
             task.style.display = 'none';
