@@ -15,6 +15,8 @@ function addTask() {
     newTask.textContent = taskInput.value + ' [Catégorie: ' + taskCategory + ']';
     newTask.classList.add(taskPriority);
     newTask.addEventListener('click', toggleTaskCompletion);
+    newTask.setAttribute('data-category', taskCategory);
+    newTask.setAttribute('data-priority', taskPriority);
 
     let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Supprimer';
@@ -43,15 +45,23 @@ function deleteTask(e) {
 function saveTasks() {
     let tasks = [];
     document.querySelectorAll('#task-list li').forEach(task => {
-        tasks.push({ text: task.firstChild.textContent, completed: task.classList.contains('completed') });
+        tasks.push({
+            text: task.firstChild.textContent,
+            completed: task.classList.contains('completed'),
+            category: task.getAttribute('data-category'),
+            priority: task.getAttribute('data-priority')
+        });
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
 
 function loadTasks() {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => {
         let newTask = document.createElement('li');
+        newTask.setAttribute('data-category', task.category);
+        newTask.setAttribute('data-priority', task.priority);
         newTask.textContent = task.text;
         if (task.completed) {
             newTask.classList.add('completed');
