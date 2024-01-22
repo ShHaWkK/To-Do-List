@@ -22,6 +22,9 @@ function addTask() {
     deleteBtn.textContent = 'Supprimer';
     deleteBtn.addEventListener('click', deleteTask);
 
+    let dueDate = document.getElementById('task-due-date').value;
+    newTask.setAttribute('data-due-date', dueDate);
+
     newTask.appendChild(deleteBtn);
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
@@ -46,7 +49,8 @@ function saveTasks() {
             text: task.firstChild.textContent,
             completed: task.classList.contains('completed'),
             category: task.getAttribute('data-category'),
-            priority: task.getAttribute('data-priority')
+            priority: task.getAttribute('data-priority'),
+            dueDate: task.getAttribute('data-due-date')
         });
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -59,9 +63,13 @@ function loadTasks() {
         let newTask = document.createElement('li');
         newTask.setAttribute('data-category', task.category);
         newTask.setAttribute('data-priority', task.priority);
+        newTask.setAttribute('data-due-date', task.dueDate);
         newTask.textContent = task.text;
         if (task.completed) {
             newTask.classList.add('completed');
+        }
+        if (task.dueDate && new Date(task.dueDate) < new Date()) {
+            newTask.classList.add('overdue');
         }
 
         let deleteBtn = document.createElement('button');
