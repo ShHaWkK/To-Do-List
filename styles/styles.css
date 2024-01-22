@@ -60,3 +60,7 @@ button:hover {
 .élevée {
     background-color: #e4980b; 
 }
+/* Style pour les tâches dépassées */
+.overdue {
+    color: red; 
+}
