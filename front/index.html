@@ -10,23 +10,25 @@
         <h1>Ma Liste de Tâches</h1>
         <input type="text" id="new-task" placeholder="Ajouter une nouvelle tâche...">
         
-        <!-- Menu déroulant pour les catégories -->
-        <select id="task-category">
+        <!-- Champ de recherche textuelle -->
+        <input type="text" id="search-text" placeholder="Rechercher une tâche..." onkeyup="filterTasks()">
+
+        <!-- Menu déroulant pour filtrer par catégorie -->
+        <select id="filter-category" onchange="filterTasks()">
+            <option value="">Toutes les catégories</option>
             <option value="personnel">Personnel</option>
             <option value="travail">Travail</option>
             <option value="urgent">Urgent</option>
             <option value="autre">Autre</option>
         </select>
-        <!-- Menu déroulant pour la priorité des tâches -->
-        <select id="task-priority">
+
+        <!-- Menu déroulant pour filtrer par priorité -->
+        <select id="filter-priority" onchange="filterTasks()">
+            <option value="">Toutes les priorités</option>
             <option value="faible">Faible</option>
             <option value="moyenne">Moyenne</option>
             <option value="élevée">Élevée</option>
         </select>
-
-        <!-- Champ de recherche -->
-        <input type="text" id="search-task" placeholder="Rechercher une tâche..." onkeyup="filterTasks()">
-
         <button onclick="addTask()">Ajouter</button>
         <ul id="task-list"></ul>
     </div>
