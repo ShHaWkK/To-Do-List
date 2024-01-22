@@ -5,11 +5,19 @@
     <title>To-Do List</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
-
 <body>
     <div id="todo-app">
         <h1>Ma Liste de Tâches</h1>
         <input type="text" id="new-task" placeholder="Ajouter une nouvelle tâche...">
+        
+        <!-- Menu déroulant pour les catégories -->
+        <select id="task-category">
+            <option value="personnel">Personnel</option>
+            <option value="travail">Travail</option>
+            <option value="urgent">Urgent</option>
+            <option value="autre">Autre</option>
+        </select>
+
         <button onclick="addTask()">Ajouter</button>
         <ul id="task-list"></ul>
     </div>
