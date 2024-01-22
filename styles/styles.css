@@ -48,3 +48,15 @@ button {
 button:hover {
     background-color: #d32f2f;
 }
+/* Styles pour les priorités de tâches */
+.faible {
+    background-color: #70c402; 
+}
+
+.moyenne {
+    background-color: #29a2f3; 
+}
+
+.élevée {
+    background-color: #e4980b; 
+}
