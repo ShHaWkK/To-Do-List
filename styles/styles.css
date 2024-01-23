@@ -91,25 +91,40 @@ button:hover {
 
     #task-list 
     {
-
+        list-style: none ;
+        padding: 0;
     }
 
     #task-list li {
+    background-color: #eee;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     }
 
     #task-list li.overdue 
     {
+        background-color: #f2dede;        
 
     }
 
     #task-list li.completed 
     {
-
+    text-decoration: line-through;
+    color: #888;
     }
 
     #task-list button 
     {
-        
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
     }
 }
