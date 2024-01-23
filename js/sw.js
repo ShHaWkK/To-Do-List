@@ -12,8 +12,8 @@ self.addEventListener('push', event => {
     const title = data.title || 'Notification';
     const options = {
         body: data.body,
-        icon: 'icon.png', 
-        badge: 'badge-icon.png'
+        icon: '../images/icon.png', 
+        badge: '../images/badge-icon.png'
     };
 
     event.waitUntil(self.registration.showNotification(title, options));
