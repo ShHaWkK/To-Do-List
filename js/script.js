@@ -4,11 +4,12 @@ document.getElementById('new-task').addEventListener('keypress', function(e) {
         addTask();
     }
 });
+/*                            addTask                         */
 
 function addTask() {
     let taskInput = document.getElementById('new-task');
-    let taskCategory = document.getElementById('filter-category').value; // ID corrigé
-    let taskPriority = document.getElementById('filter-priority').value; // ID corrigé
+    let taskCategory = document.getElementById('filter-category').value;
+    let taskPriority = document.getElementById('filter-priority').value; 
     if (taskInput.value.trim() === '') return;
 
     let newTask = document.createElement('li');
@@ -30,16 +31,20 @@ function addTask() {
     saveTasks();
     taskInput.value = '';
 }
+/*                            toggleTaskCompletion                          */
 
 function toggleTaskCompletion(e) {
     e.target.classList.toggle('completed');
     saveTasks();
 }
 
+/*                            deleteTask                          */
+
 function deleteTask(e) {
     e.target.parentElement.remove();
     saveTasks();
 }
+/*                            saveTasks                          */
 
 function saveTasks() {
     let tasks = [];
@@ -54,6 +59,9 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
+/*                           loadTasks                          */
+
 
 function loadTasks() {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -80,6 +88,8 @@ function loadTasks() {
     });
 }
 
+/*                            filterTasks                         */
+
 function filterTasks() {
     let searchText = document.getElementById('search-text').value.toLowerCase();
     let filterCategory = document.getElementById('filter-category').value;
@@ -100,6 +110,9 @@ function filterTasks() {
         }
     });
 }
+
+/*                            askPermission                          */
+
 function askPermission() {
     return new Promise(function(resolve, reject) {
         const permissionResult = Notification.requestPermission(function(result) {
@@ -132,6 +145,8 @@ function subscribeUserToPush() {
             return pushSubscription;
         });
 }
+
+/*                            VAPID Key Conversion                          */
 
 function urlBase64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
