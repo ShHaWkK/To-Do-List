@@ -30,6 +30,7 @@ function addTask() {
     document.getElementById('task-list').appendChild(newTask);
     saveTasks();
     taskInput.value = '';
+    showNotification('task-added-notification');
 }
 /*                            toggleTaskCompletion                          */
 
@@ -43,6 +44,7 @@ function toggleTaskCompletion(e) {
 function deleteTask(e) {
     e.target.parentElement.remove();
     saveTasks();
+    showNotification('task-deleted-notification');
 }
 /*                            saveTasks                          */
 
@@ -162,3 +164,45 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
+
+function showNotification(id) {
+    document.getElementById(id).style.display = 'block';
+    setTimeout(function() {
+        document.getElementById(id).style.display = 'none';
+    }, 3000); // Masquer après 3 secondes
+}
+
+function sendSubscriptionToBackEnd(subscription) {
+    return fetch('http://localhost:8087/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subscription)
+    })
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error('Mauvaise réponse du serveur.');
+        }
+
+        return response.json();
+    })
+    .then(function(responseData) {
+        if (!(responseData.data && responseData.data.success)) {
+            throw new Error('Mauvaise réponse du serveur.');
+        }
+    });
+}
+
+function NotificationPush() {
+    askPermission()
+        .then(subscribeUserToPush)
+        .then(function(subscription) {
+            return sendSubscriptionToBackEnd(subscription);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+}
+
+
