@@ -153,3 +153,10 @@ div[id$="-notification"] {
     cursor: pointer;
     }
 }
+
+/* Thème sombre */
+.body-dark {
+    background-color: #363537;
+    color: #FFFFFF;
+    /* Autres styles du thème sombre */
+}
