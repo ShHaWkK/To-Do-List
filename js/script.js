@@ -1,3 +1,9 @@
+function changeTheme(themeName) {
+    document.body.className = themeName;
+    localStorage.setItem('selectedTheme', themeName);
+}
+
+
 document.addEventListener('DOMContentLoaded', loadTasks);
 document.getElementById('new-task').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
@@ -52,16 +58,17 @@ function deleteTask(e) {
     e.target.parentElement.remove();
     saveTasks();
     showNotification('task-deleted-notification');
+}
 
+function showDeleteConfirmation() {
     Swal.fire({
-        title: 'Attention!',
-        text: 'Êtes-vous sûr de vouloir supprimer cette tâche?',
+        title: 'Êtes-vous sûr?',
+        text: "Vous ne pourrez pas revenir en arrière!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Oui, supprimer!',
-        cancelButtonText: 'Annuler'
+        confirmButtonText: 'Oui, supprimez-le!'
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
@@ -69,6 +76,9 @@ function deleteTask(e) {
                 'Votre tâche a été supprimée.',
                 'success'
             )
+            
+            deleteTask();
+
         }
     });
 }
