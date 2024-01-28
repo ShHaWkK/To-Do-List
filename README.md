@@ -17,3 +17,4 @@ This project is a simple but powerful task list web application. It allows users
 - CSS
 - JavaScript
 - Service Workers for push notifications
+- -Manager
