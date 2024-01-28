@@ -1,13 +1,15 @@
-function changeTheme(theme) {
+function toggleTheme() {
+    var theme = document.body.className === 'light' ? 'dark' : 'light';
     document.body.className = theme;
     localStorage.setItem('selectedTheme', theme);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('selectedTheme') || 'light';
-    document.getElementById('theme').value = savedTheme;
-    changeTheme(savedTheme);
+    document.body.className = savedTheme;
+    document.getElementById('theme-switch').checked = savedTheme === 'dark';
 });
+
 document.addEventListener('DOMContentLoaded', loadTasks);
 document.getElementById('new-task').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
