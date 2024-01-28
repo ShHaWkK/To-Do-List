@@ -52,6 +52,25 @@ function deleteTask(e) {
     e.target.parentElement.remove();
     saveTasks();
     showNotification('task-deleted-notification');
+
+    Swal.fire({
+        title: 'Attention!',
+        text: 'Êtes-vous sûr de vouloir supprimer cette tâche?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Supprimé!',
+                'Votre tâche a été supprimée.',
+                'success'
+            )
+        }
+    });
 }
 /*                            saveTasks                          */
 
