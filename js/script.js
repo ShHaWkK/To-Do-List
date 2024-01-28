@@ -31,6 +31,13 @@ function addTask() {
     saveTasks();
     taskInput.value = '';
     showNotification('task-added-notification');
+    Swal.fire({
+        title: 'Succès!',
+        text: 'Tâche ajoutée avec succès.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+    });
+    NotificationPush();
 }
 /*                            toggleTaskCompletion                          */
 
