@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>To-Do List</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../style/styles.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<div id="theme-selector">
-    <label for="theme">Choisir un thème :</label>
-    <select id="theme" onchange="changeTheme(this.value)">
-        <option value="light">Clair</option>
-        <option value="dark">Sombre</option>
-    </select>
-</div>
+<body class="light">
+    <div id="theme-selector">
+        <label for="theme">Choisir un thème :</label>
+        <select id="theme" onchange="changeTheme(this.value)">
+            <option value="light">Clair</option>
+            <option value="dark">Sombre</option>
+        </select>
+    </div>
 
     <div id="todo-app">
         <h1>Ma Liste de Tâches</h1>
         <input type="text" id="new-task" placeholder="Ajouter une nouvelle tâche...">
-        
-        <!-- Champ de recherche textuelle -->
         <input type="text" id="search-text" placeholder="Rechercher une tâche..." onkeyup="filterTasks()">
-
-        <!-- Menu déroulant pour filtrer par catégorie -->
         <select id="filter-category" onchange="filterTasks()">
             <option value="">Toutes les catégories</option>
             <option value="personnel">Personnel</option>
@@ -31,8 +26,6 @@
             <option value="urgent">Urgent</option>
             <option value="autre">Autre</option>
         </select>
-        
-        <!-- Menu déroulant pour filtrer par priorité -->
         <select id="filter-priority" onchange="filterTasks()">
             <option value="">Toutes les priorités</option>
             <option value="faible">Faible</option>
@@ -41,36 +34,11 @@
         </select>
         <input type="date" id="task-due-date">
         <button onclick="addTask()">Ajouter</button>
-        <button onclick="deleteAllTasks()">Supprimer tout</button>
-        <button onclick="deleteAllCompletedTasks()">Supprimer les tâches terminées</button>
-        <button onclick="deleteAllUncompletedTasks()">Supprimer les tâches non terminées</button>
         <ul id="task-list"></ul>
-    </div>
-
-    <!-- Notifier l'utilisateur que la tâche a été ajoutée -->
-    <div id="task-added-notification">
-        <p>Tâche ajoutée !</p>
-    </div>
-
-        <!-- Notifier l'utilisateur que la tâche a été supprimé  -->
-    <div id="task-deleted-notification">
-        <p>Tâche supprimée !</p>
-    </div>
-
-    <!-- Notifier l'utilisateur que la tâche a été modifié  -->
-
-    <div id="task-modified-notification">
-        <p>Tâche modifiée !</p>
-    </div>
-
-    <!--                 Notification de rappel             -->
-
-    <div id="task-reminder-notification">
-        <p>Vous avez une tâche à faire !</p>
     </div>
     <input type="file" id="import-file" style="display: none;" onchange="importTasks(event)">
     <button onclick="document.getElementById('import-file').click()">Importer Tâches</button>
-    <button onclick="exportTasks()" src="../js/script.js">Exporter Tâches</button>
+    <button onclick="exportTasks()">Exporter Tâches</button>
 
 <script src="../js/script.js"></script>
 <script src="../js/sw.js"></script>
