@@ -1,7 +1,9 @@
-function changeTheme(themeName) {
-    document.body.className = themeName;
-    localStorage.setItem('selectedTheme', themeName);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+    const savedTheme = localStorage.getItem('selectedTheme') || 'light';
+    document.getElementById('theme').value = savedTheme;
+    changeTheme(savedTheme);
+});
 
 
 document.addEventListener('DOMContentLoaded', loadTasks);
@@ -76,7 +78,7 @@ function showDeleteConfirmation() {
                 'Votre tâche a été supprimée.',
                 'success'
             )
-            
+
             deleteTask();
 
         }
