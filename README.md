@@ -16,7 +16,7 @@ This To-Do List application is a versatile web tool designed for managing tasks 
 ## Technologies Used
 - **HTML5**
 - **CSS3**
-- **JavaScript (ES6)**
+- **JavaScript**
 - **Service Workers**: For handling push notifications.
 - **Local Storage**: To persistently store tasks.
 
