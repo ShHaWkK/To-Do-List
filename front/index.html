@@ -70,10 +70,20 @@
     </div>
     <input type="file" id="import-file" style="display: none;" onchange="importTasks(event)">
     <button onclick="document.getElementById('import-file').click()">Importer Tâches</button>
-    <button onclick="exportTasks()" src="../js/export.js">Exporter Tâches</button>
+    <button onclick="exportTasks()" src="../js/script.js">Exporter Tâches</button>
 
 <script src="../js/script.js"></script>
-<script src="../js/export.js"></script>
-<script src="../js/import.js"></script>
+<script src="../js/sw.js"></script>
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./js/sw.js')
+            .then(function(registration) {
+                console.log('Service Worker Registered', registration);
+            })
+            .catch(function(error) {
+                console.log('Service Worker Registration failed', error);
+            });
+    }
+</script>
 </html>
