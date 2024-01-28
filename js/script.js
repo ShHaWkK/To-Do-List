@@ -1,11 +1,13 @@
+function changeTheme(theme) {
+    document.body.className = theme;
+    localStorage.setItem('selectedTheme', theme);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    loadTasks();
     const savedTheme = localStorage.getItem('selectedTheme') || 'light';
     document.getElementById('theme').value = savedTheme;
     changeTheme(savedTheme);
 });
-
-
 document.addEventListener('DOMContentLoaded', loadTasks);
 document.getElementById('new-task').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
