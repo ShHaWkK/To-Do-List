@@ -85,6 +85,7 @@ button-import:hover, .button-export:hover {
     background-color: #ccc;
     transition: .4s;
     border-radius: 34px;
+    background-color: var(--primary-color);
 }
 
 .slider:before {
@@ -100,7 +101,7 @@ button-import:hover, .button-export:hover {
 }
 
 input:checked + .slider {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-hover);
 }
 
 input:focus + .slider {
@@ -169,6 +170,11 @@ body.dark {
     --primary-color: #556B2F;
     --primary-color-hover: #6B8E23;
 }
+
+#task-list.dark li {
+    background-color: #35c709;
+}
+
 
 /* Responsivité */
 @media only screen and (max-width: 600px) {
