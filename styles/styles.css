@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-color-hover: #45a049;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --button-background: #ffffff;
+    --button-background-hover: #f7f7f7;
+}
 /* Styles généraux */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
