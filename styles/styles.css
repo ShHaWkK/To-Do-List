@@ -25,11 +25,31 @@ body {
     padding: 25px;
     border-radius: 10px;
     width: 90%;
+    position: relative;
     max-width: 600px;
     background-color: #fff;
     transition: background-color 0.3s;
 }
 
+
+.button-import, .button-export {
+    background-color: var(--button-background);
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+button-import:hover, .button-export:hover {
+    background-color: var(--button-background-hover);
+}
 #theme-selector {
     position: absolute;
     top: 20px;
