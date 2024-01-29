@@ -6,7 +6,7 @@
     --button-background: #ffffff;
     --button-background-hover: #f7f7f7;
 }
-/* Styles généraux */
+/*                                          Styles généraux                                                         */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -85,7 +85,6 @@ button-import:hover, .button-export:hover {
     background-color: #ccc;
     transition: .4s;
     border-radius: 34px;
-    background-color: #FFFFFF;
 }
 
 .slider:before {
