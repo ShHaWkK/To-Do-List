@@ -37,8 +37,12 @@
         <ul id="task-list"></ul>
     </div>
     <input type="file" id="import-file" style="display: none;" onchange="importTasks(event)">
-    <button onclick="document.getElementById('import-file').click()">Importer Tâches</button>
-    <button onclick="exportTasks()">Exporter Tâches</button>
+    <div class="action-buttons">
+        <button class="button-import" onclick="document.getElementById('import-file').click()">Importer Tâches</button>
+        <button class="button-export" onclick="exportTasks()">Exporter Tâches</button>
+    </div>
+</div>
+<input type="file" id="import-file" style="display: none;" onchange="importTasks(event)">
 
 <script src="../js/script.js"></script>
 <script src="../js/sw.js"></script>
