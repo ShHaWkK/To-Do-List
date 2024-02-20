@@ -5,7 +5,9 @@ function toggleTheme()
     localStorage.setItem('selectedTheme', theme);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => 
+    
+    {
     const savedTheme = localStorage.getItem('selectedTheme') || 'light';
     document.body.className = savedTheme;
     document.getElementById('theme-switch').checked = savedTheme === 'dark';
