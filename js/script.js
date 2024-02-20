@@ -72,7 +72,8 @@ function deleteTask(e) {
     showNotification('task-deleted-notification');
 }
 
-function showDeleteConfirmation() {
+function showDeleteConfirmation() 
+{
     Swal.fire({
         title: 'Êtes-vous sûr?',
         text: "Vous ne pourrez pas revenir en arrière!",
