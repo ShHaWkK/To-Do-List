@@ -21,10 +21,12 @@ document.getElementById('new-task').addEventListener('keypress', function(e) {
 });
 /*                            addTask                         */
 
-function addTask() {
+function addTask() 
+{
     let taskInput = document.getElementById('new-task');
     let taskCategory = document.getElementById('filter-category').value;
     let taskPriority = document.getElementById('filter-priority').value; 
+    
     if (taskInput.value.trim() === '') return;
 
     let newTask = document.createElement('li');
