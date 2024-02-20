@@ -1,4 +1,5 @@
-function toggleTheme() {
+function toggleTheme() 
+{
     var theme = document.body.className === 'light' ? 'dark' : 'light';
     document.body.className = theme;
     localStorage.setItem('selectedTheme', theme);
