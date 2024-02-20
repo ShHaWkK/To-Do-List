@@ -22,16 +22,22 @@
     
     
     <div id="todo-app">
+        
         <h1>Ma Liste de Tâches</h1>
+        
         <input type="text" id="new-task" placeholder="Ajouter une nouvelle tâche...">
         <input type="text" id="search-text" placeholder="Rechercher une tâche..." onkeyup="filterTasks()">
+            
         <select id="filter-category" onchange="filterTasks()">
+            
             <option value="">Toutes les catégories</option>
             <option value="personnel">Personnel</option>
             <option value="travail">Travail</option>
             <option value="urgent">Urgent</option>
             <option value="autre">Autre</option>
+            
         </select>
+        
         <select id="filter-priority" onchange="filterTasks()">
             <option value="">Toutes les priorités</option>
             <option value="faible">Faible</option>
